@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TSPython</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+ 	<div class="banner">
+	  <a class="banner-title" href = "/">TSPython</a>
+	  <div class="banner-links">
+	    <a class="banner-link" href="lesson1">Introduction</a>
+	    <a class="banner-link" href="lesson2">Conditionals</a>
+	    <a class="banner-link" href="lesson3">Loops</a>
+	    <a class="banner-link" href="lesson4">Lists</a>
+	    <a class="banner-link" href="lesson5">Functions</a>
+      <a class="banner-link" href="lesson6">Dictionaries</a>
+      <a class="banner-link" href="lesson7">Objects</a>
+      <a class="banner-link" href="lesson8">Decorators</a>
+      <a class="banner-link" style = "color: #5CE1E6" href="lesson9">Generators</a>
+      <a class="banner-link" href="lesson10">Files</a>
+      <a class="banner-link" href="other">Other</a>
+	  </div>
+	</div>
+	<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQoqVOLyLllIQr8hrM15o01j8IB0qjigF-uPGn74t6Rg2e4SNxBZw598F--JuUaE4ym2KGZO5WnQPwj/embed?start=false&loop=false&delayms=3000" frameborder="0" height="500"></iframe>
+
+	<iframe src="text.html" height="501" style ="margin-top:0px"></iframe>
+
+	<div class="code-container">
+<code>#1. Write a generator function that yields the first n even numbers.
+def even_numbers(n):
+    i = 0
+    while i < n:
+        yield i * 2
+        i += 1
+
+for number in even_numbers(5):
+  print(number)
+
+#2. Write a generator function that yields the running total of a given list.
+def running_total(lst):
+    total = 0
+    for num in lst:
+        total += num
+        yield total
+      
+nums = [1, 2, 3, 4, 5]
+
+for total in running_total(nums):
+    print(total)
+
+#3. Write a generator function that yields the unique values of a given list.
+def unique_values(seq):
+  seen = []
+  for value in seq:
+    if value not in seen:
+      seen.append(value)
+      yield value
+
+nums = [1, 2, 3, 1, 2, 4, 5, 3]
+for value in unique_values(nums):
+  print(value)
+
+#4. Write a generator function that yields the Fibonacci sequence up to a given number n.
+def fibonacci(n):
+    a, b = 0, 1
+    while a <= n:
+        yield a
+        a, b = b, a + b
+
+for num in fibonacci(100):
+  print(num)
+  
+#5. Write a generator function that yields an infinite sequence of random numbers between 0 and 1.
+import random
+
+def random_numbers():
+    while True:
+        yield random.random()
+        
+generator = random_numbers()
+for i in range(10):
+    print(next(generator))
+</code>
+	</div>
+</body>
+</html>

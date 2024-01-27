@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TSPython</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+ 	<div class="banner">
+	  <a class="banner-title" href = "/">TSPython</a>
+	  <div class="banner-links">
+	    <a class="banner-link" href="lesson1">Introduction</a>
+	    <a class="banner-link" href="lesson2">Conditionals</a>
+	    <a class="banner-link" href="lesson3">Loops</a>
+	    <a class="banner-link" href="lesson4">Lists</a>
+	    <a class="banner-link" href="lesson5">Functions</a>
+      <a class="banner-link" href="lesson6">Dictionaries</a>
+      <a class="banner-link" style = "color: #5CE1E6" href="lesson7">Objects</a>
+      <a class="banner-link" href="lesson8">Decorators</a>
+      <a class="banner-link" href="lesson9">Generators</a>
+      <a class="banner-link" href="lesson10">Files</a>
+      <a class="banner-link" href="other">Other</a>
+	  </div>
+	</div>
+	<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTG1v0G9IEQ0Se3PjHuWPVLNa_IKsoepbZhhzmydylOk3tuAtN1o3ncSMrz5C6_B7MQBI4-8vCzMXcJ/embed?start=false&loop=false&delayms=3000" frameborder="0" height="500"></iframe>
+
+	<iframe src="text.html" height="501" style ="margin-top:0px"></iframe>
+
+	<div class="code-container">
+<code>#1. BankAccount class
+class BankAccount:
+  def __init__(self, owner, balance):
+    self.owner = owner
+    self.balance = balance
+
+  def deposit(self, amt):
+    self.balance += amt
+    print("Deposit accepted")
+
+  def withdraw(self, amt):
+    if self.balance >= amt:
+      self.balance -= amt
+      print("Withdrawal accepted")
+    else:
+      print("Insufficient funds!")
+
+myAccount = BankAccount("Bob", 500)
+myAccount.withdraw(200)
+print(myAccount.balance)
+myAccount.deposit(500)
+print(myAccount.balance)
+myAccount.withdraw(1000)
+print(myAccount.balance)
+
+#2. Student class
+class Student:
+  def __init__(self, name, id, grades=[]):
+    self.name = name
+    self.id = id
+    self.grades = grades
+    self.gpa = self.calculateGPA()
+
+  def calculateGPA(self):
+    if len(self.grades) == 0:
+      return 100.0
+    return round((sum(self.grades) / len(self.grades)), 1)
+
+  def submitGrade(self, grade):
+    self.grades.append(grade)
+    self.gpa = self.calculateGPA()
+
+  def displayInfo(self):
+    print(f"Name: {self.name}, ID: {self.id}, Grades: {self.grades}, GPA: {self.gpa}")
+
+bob = Student("Bob", 1000, [85, 100, 95])
+bob.displayInfo()
+
+#3. Classroom class
+class Classroom:
+  def __init__(self, name, students=[]):
+    self.name = name
+    self.students = students
+
+  def addStudent(self, student):
+    self.students.append(student)
+
+  def removeStudent(self, id):
+    for student in self.students:
+      if student.id == id:
+        self.students.remove(student)
+        return
+
+  def getStudent(self, id):
+    for student in self.students:
+      if student.id == id:
+        return student
+    return None
+
+  def getStudentCount(self):
+    return len(self.students)
+
+  def getAverageGPA(self):
+    total_gpa = 0.0
+    for student in self.students:
+      total_gpa += student.gpa
+    if len(self.students) > 0:
+      return round(total_gpa / len(self.students), 1)
+    else:
+      return 100.0
+
+  def displayInfo(self):
+    print(f"Name: {self.name}\n")
+    print(f"Size: {self.getStudentCount()}\n")
+    print(f"Average GPA: {self.getAverageGPA()}\n")
+    print(f"Students:\n")
+    for student in self.students:
+      student.displayInfo()
+      print("----------")
+
+classroom = Classroom("Theo's Class")
+
+classroom.addStudent(bob)
+classroom.addStudent(Student("Joe", 2000, [100, 90]))
+
+classroom.getStudent(2000).displayInfo()
+print(classroom.getStudentCount())
+print(classroom.getAverageGPA())
+classroom.displayInfo()
+classroom.removeStudent(2000)
+classroom.displayInfo()
+
+#4. Movie Database
+class Movie:
+    def __init__(self, title, genre, year, director):
+        self.title = title
+        self.genre = genre
+        self.year = year
+        self.director = director
+        self.ratings = []
+        self.avg_rating = 0
+
+    def add_rating(self, rating):
+        self.ratings.append(rating)
+        self.avg_rating = sum(self.ratings) / len(self.ratings)
+
+    def get_info(self):
+        return f"{self.title} ({self.year}), directed by {self.director}. Genre: {self.genre}. Average rating: {self.avg_rating}"
+
+class MovieDatabase:
+    def __init__(self):
+        self.movies = []
+
+    def add_movie(self, movie):
+        self.movies.append(movie)
+
+    def search_movie(self, query):
+        for movie in self.movies:
+            if query.lower() in [movie.title.lower(), movie.genre.lower(), movie.director.lower()]:
+                print(movie.get_info())
+
+    def rate_movie(self, title, rating):
+        for movie in self.movies:
+            if movie.title == title:
+                movie.add_rating(rating)
+
+database = MovieDatabase()
+
+# add some movies to the database
+database.add_movie(Movie("The Shawshank Redemption", "Drama", 1994, "Frank Darabont"))
+database.add_movie(Movie("The Godfather", "Crime", 1972, "Francis Ford Coppola"))
+database.add_movie(Movie("The Dark Knight", "Action", 2008, "Christopher Nolan"))
+database.add_movie(Movie("Pulp Fiction", "Crime", 1994, "Quentin Tarantino"))
+
+# add some ratings to the movies
+database.rate_movie("The Shawshank Redemption", 9)
+database.rate_movie("The Shawshank Redemption", 10)
+database.rate_movie("The Godfather", 9)
+database.rate_movie("The Godfather", 8)
+database.rate_movie("The Dark Knight", 10)
+database.rate_movie("Pulp Fiction", 7)
+database.rate_movie("Pulp Fiction", 8)
+
+database.search_movie("The Dark Knight")
+
+database.search_movie("Crime")
+
+database.search_movie("Quentin Tarantino")
+
+#5. Online Shop
+class Product:
+    def __init__(self, name, category, price):
+        self.name = name
+        self.category = category
+        self.price = price
+
+    def get_info(self):
+        return f"{self.name} ({self.category}): ${self.price:.2f}"
+
+class Shop:
+    def __init__(self):
+        self.products = []
+
+    def add_product(self, product):
+        self.products.append(product)
+
+    def remove_product(self, name):
+        for product in self.products:
+            if product.name == name:
+                self.products.remove(product)
+                print(f"{name} has been removed from the shop.")
+                return
+        print(f"{name} not found in the shop.")
+
+    def list_products(self):
+        if not self.products:
+            print("No products in the shop.")
+        else:
+            for product in self.products:
+                print(product.get_info())
+
+    def search_products(self, query):
+        found_products = []
+        for product in self.products:
+            if query.lower() in [product.name.lower(), product.category.lower()]:
+                found_products.append(product)
+        if found_products == False:
+            print(f"No matches found for {query}.")
+        else:
+            print(f"{len(found_products)} match(es) found for {query}:")
+            for product in found_products:
+                print(product.get_info())
+        return found_products
+
+class Cart:
+    def __init__(self):
+        self.items = []
+
+    def add_to_cart(self, shop, name):
+        found_products = shop.search_products(name)
+        if found_products:
+            self.items.append(found_products[0])
+            print(f"{name} has been added to the cart.")
+        else:
+            print(f"{name} not found in the shop.")
+
+    def remove_from_cart(self, name):
+        for item in self.items:
+            if item.name == name:
+                self.items.remove(item)
+                print(f"{name} has been removed from the cart.")
+                return
+        print(f"{name} not found in the cart.")
+
+    def list_items(self):
+        if not self.items:
+            print("No items in the cart.")
+        else:
+            for item in self.items:
+                print(item.get_info())
+
+    def get_total(self):
+        cart_total = 0
+        for item in self.items:
+            cart_total += item.price
+        print(f"Cart total: ${cart_total:.2f}")
+
+shop = Shop()
+shop.add_product(Product("Apple", "Fruit", 1.5))
+shop.add_product(Product("Orange", "Fruit", 2.0))
+shop.add_product(Product("Banana", "Fruit", 1.0))
+shop.add_product(Product("Apple Juice", "Drink", 1.5))
+shop.remove_product("Banana")
+
+cart = Cart()
+cart.add_to_cart(shop, "Apple")
+cart.add_to_cart(shop, "Orange")
+cart.add_to_cart(shop, "Banana")
+
+cart.list_items()
+cart.get_total()
+
+cart.remove_from_cart("Apple")
+cart.list_items()     
+
+#6. Create a parent class called Rectangle with the attributes length and width and methods for area and perimeter. Then create child class Square that inherits from Rectangle.
+class Rectangle:
+  def __init__(self, length, width):
+    self.length = length
+    self.width = width
+    
+  def area(self):
+    return self.length * self.width
+    
+  def perimeter(self):
+    return 2 * (self.length + self.width)
+
+class Square(Rectangle):
+  def __init__(self, length):
+    super().__init__(length, length)
+
+rectangle = Rectangle(10, 5)
+print(rectangle.area(), rectangle.perimeter())
+square = Square(3)
+print(square.area(), square.perimeter())
+
+#7. Create a parent class called Vehicle with the attributes make and model. Then create child classes called Car and Truck that inherit from Vehicle and add an additional attribute num_doors and bed_size, respectively. Write a method called get_info for both classes that prints out all the attributes of the object.
+class Vehicle:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+    
+    def get_info(self):
+        print(f"Make: {self.make}, Model: {self.model}")
+        
+class Car(Vehicle):
+    def __init__(self, make, model, num_doors):
+        super().__init__(make, model)
+        self.num_doors = num_doors
+    
+    def get_info(self):
+        super().get_info()
+        print(f"Number of doors: {self.num_doors}")
+        
+class Truck(Vehicle):
+    def __init__(self, make, model, bed_size):
+        super().__init__(make, model)
+        self.bed_size = bed_size
+    
+    def get_info(self):
+        super().get_info()
+        print(f"Bed size: {self.bed_size}")
+
+vehicle = Vehicle('Toyota', 'Camry')
+vehicle.get_info()   
+
+car = Car('Honda', 'Accord', 4)
+car.get_info()    
+
+truck = Truck('Ford', 'F150', '6ft')
+truck.get_info()
+</code>
+	</div>
+</body>
+</html>

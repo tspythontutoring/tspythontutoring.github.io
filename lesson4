@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TSPython</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+ 	<div class="banner">
+	  <a class="banner-title" href = "/">TSPython</a>
+	  <div class="banner-links">
+	    <a class="banner-link" href="lesson1">Introduction</a>
+	    <a class="banner-link" href="lesson2">Conditionals</a>
+	    <a class="banner-link" href="lesson3">Loops</a>
+	    <a class="banner-link" style = "color: #5CE1E6" href="lesson4">Lists</a>
+	    <a class="banner-link" href="lesson5">Functions</a>
+      <a class="banner-link" href="lesson6">Dictionaries</a>
+      <a class="banner-link" href="lesson7">Objects</a>
+      <a class="banner-link" href="lesson8">Decorators</a>
+      <a class="banner-link" href="lesson9">Generators</a>
+      <a class="banner-link" href="lesson10">Files</a>
+      <a class="banner-link" href="other">Other</a>
+	  </div>
+	</div>
+	<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQZVsj6682Ksf_Jw9lhoZdpSWmiMGcSgCpZTpUtwqQoxFttKw824wefPPHFQ_DPqy_VzoiGThEj-NBN/embed?start=false&loop=false&delayms=3000" frameborder="0" height="500"></iframe>
+
+	<iframe src="https://www.youtube.com/embed/4I5JnzUhnjI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen height="501" style ="margin-top:0px"></iframe>
+
+	<div class="code-container">
+<code>#1. Write a program that prints the sum of the numbers in a list.
+myList = [3, 8, 5, 9, 6, 2]
+
+sum = 0
+for num in myList:
+  sum += num
+
+print(sum)
+
+#2. Write a program that takes a list and creates a new list with only the even numbers from the original list.
+myList = [3, 8, 5, 9, 6, 2]
+
+newList = []
+for num in myList:
+  if num % 2 == 0:
+    newList.append(num)
+
+print(newList)
+
+#3. Write a program that takes a list and creates a new list with only the items at odd indexes from the original list.
+myList = [3, 8, 5, 9, 6, 2]
+newList = []
+
+index = 1
+while index < len(myList):
+  newList.append(myList[index])
+  index += 2
+  
+print(newList)
+
+#4. Write a program that takes a list of numbers and creates a new list that contains the squared values of all the numbers from the original list.
+myList = [3, 8, 5, 9, 6, 2]
+newList = []
+
+for num in myList:
+  newList.append(num ** 2)
+
+print(newList)
+
+#5. Write a program that takes a list of strings as input and returns a new list that contains only the strings that start with the letter "a".
+myList = ["cherry", "apple", "peach", "apricot", "avocado", "orange"]
+newList = []
+
+for string in myList:
+  if string[0] == "a":
+    newList.append(string)
+
+print(newList)
+
+
+list1 = [3, 8, 5, 9, 6]
+list2 = [10, 8, 4, 6, 7]
+
+#6. Write a program that takes a list of strings and creates a new list that contains only the strings with more than 5 characters.
+myList = ["cherry", "apple", "peach", "apricot", "avocado", "orange"]
+newList = []
+
+for string in myList:
+  if len(string) == 5:
+    newList.append(string)
+
+print(newList)
+
+#7. Write a program that takes a list of numbers as input and returns a new list that contains only the unique numbers from the original list.
+myList = [1, 2, 1, 8, 6, 3, 7, 8, 4, 3]
+newList = []
+
+for num in myList:
+  if num not in newList:
+    newList.append(num)
+
+print(newList)
+
+#8. Write a program that takes two lists of equal length and creates a new list that contains only the elements that are common to both lists.
+list1 = [3, 8, 5, 8, 6]
+list2 = [10, 8, 4, 6, 7]
+
+newList = []
+
+for num in list1:
+  if num in list2 and num not in newList:
+    newList.append(num)
+
+print(newList)
+
+#9. Write a program that prints the largest number in a list.
+myList = [3, 8, 5, 9, 6, 2]
+
+largest = myList[0]
+
+for num in myList:
+  if num > largest:
+    largest = num
+
+print(largest)
+
+#10. Write a program that creates a password with a specified amount of letters, numbers, and symbols and shuffles them.
+import random
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters = int(input("How many letters would you like in your password?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+
+password = []
+for num in range(nr_letters):
+  password.append(random.choice(letters))
+for num in range(nr_numbers):
+  password.append(random.choice(numbers))
+for num in range(nr_symbols):
+  password.append(random.choice(symbols))
+
+random.shuffle(password)
+password = ''.join(password)
+
+print(password)</code>
+	</div>
+</body>
+</html>
