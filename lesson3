@@ -10,13 +10,13 @@
  	<div class="banner">
 	  <a class="banner-title" href = "/">TSPython</a>
 	  <div class="banner-links">
-	    <a class="banner-link" href="lesson1">Introduction</a>
-	    <a class="banner-link" href="lesson2">Conditionals</a>
-	    <a class="banner-link" style = "color: #5CE1E6" href="lesson3">Loops</a>
-	    <a class="banner-link" href="lesson4">Lists</a>
-	    <a class="banner-link" href="lesson5">Functions</a>
-      <a class="banner-link" href="lesson6">Dictionaries</a>
-      <a class="banner-link" href="lesson7">Objects</a>
+	    <a class="banner-link" href="lesson1.html">Introduction</a>
+	    <a class="banner-link" href="lesson2.html">Conditionals</a>
+	    <a class="banner-link" style = "color: #5CE1E6" href="lesson3.html">Loops</a>
+	    <a class="banner-link" href="lesson4.html">Lists</a>
+	    <a class="banner-link" href="lesson5.html">Functions</a>
+      <a class="banner-link" href="lesson6.html">Dictionaries</a>
+      <a class="banner-link" href="lesson7.html">Objects</a>
 	  </div>
 	</div>
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQEeakp38D-G8foA_ZPOq1_CqgXrCWMQnBKOBDQsNjl_OGWtUaYuC1AtXkDsDNl94eJyTqp6xqONMdO/embed?start=true&loop=false&delayms=60000" frameborder="0" width="837" height="500" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
