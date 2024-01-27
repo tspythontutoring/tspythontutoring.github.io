@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TSPython</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+ 	<div class="banner">
+	  <a class="banner-title" href = "/">TSPython</a>
+	  <div class="banner-links">
+	    <a class="banner-link" href="lesson1">Introduction</a>
+	    <a class="banner-link" href="lesson2">Conditionals</a>
+	    <a class="banner-link" href="lesson3">Loops</a>
+	    <a class="banner-link" href="lesson4">Lists</a>
+	    <a class="banner-link" href="lesson5">Functions</a>
+      <a class="banner-link" href="lesson6">Dictionaries</a>
+      <a class="banner-link" style = "color: #5CE1E6" href="lesson7">Objects</a>
+	  </div>
+	</div>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRth4OfbmwsbQERePxqAGlrIh589Vm2vZPSwuXx--dMGxjiqbVne6hxJ6jnQq3zERIBwLl7BkaUgeXF/embed?start=true&loop=false&delayms=60000" frameborder="0" width="837" height="500" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+	<iframe src="text.html" height="501" style ="margin-top:0px"></iframe>
+
+<div class="content-container">
+<div class="image-container">
+	<img class="img-frame" src="9.png" alt="Image 1">
+</div>
+
+	<div class="code-container">
+<code>#1. BankAccount class
+class BankAccount:
+  def __init__(self, owner, balance):
+    self.owner = owner
+    self.balance = balance
+
+  def deposit(self, amt):
+    self.balance += amt
+    print("Deposit accepted")
+
+  def withdraw(self, amt):
+    if self.balance >= amt:
+      self.balance -= amt
+      print("Withdrawal accepted")
+    else:
+      print("Insufficient funds!")
+
+myAccount = BankAccount("Bob", 500)
+myAccount.withdraw(200)
+print(myAccount.balance)
+myAccount.deposit(500)
+print(myAccount.balance)
+myAccount.withdraw(1000)
+print(myAccount.balance)
+
+#2. Book class
+class Book:
+  def __init__(self, title, author, isbn):
+      self.title = title
+      self.author = author
+      self.isbn = isbn
+
+  def __str__(self):
+      return f"'{self.title}' by {self.author} (ISBN: {self.isbn})"
+
+class Library:
+  def __init__(self):
+    self.books = []
+
+  def add_book(self, title, author):
+    isbn = str(randint(10000000, 100000000))
+    book = Book(title, author, isbn)
+    self.books.append(book)
+
+  def remove_book(self, isbn):
+    for book in self.books:
+      if book.isbn == isbn:
+        self.books.remove(book)
+        return True
+    print("Could not find a book with that ISBN!")
+
+  def display_books(self):
+    if len(self.books) == 0:
+      print("No books in the library!")
+    else:
+      for book in self.books:
+        print(book)
+
+library = Library()
+
+while True:
+  option = input("1. Add book\n2. Remove book\n3. Display books\nOption: ")
+  if option == "1":
+    title = input("Input title: ")
+    author = input("Input author: ")
+    print("--------------------")
+    library.add_book(title, author)
+  elif option == "2":
+    isbn = input("Input ISBN: ")
+    print("--------------------")
+    library.remove_book(isbn)
+  elif option == "3":
+    print("--------------------")
+    library.display_books()
+
+#4. Movie Database
+class Movie:
+    def __init__(self, title, genre, year, director):
+        self.title = title
+        self.genre = genre
+        self.year = year
+        self.director = director
+        self.ratings = []
+        self.avg_rating = 0
+
+    def add_rating(self, rating):
+        self.ratings.append(rating)
+        self.avg_rating = sum(self.ratings) / len(self.ratings)
+
+    def get_info(self):
+        return f"{self.title} ({self.year}), directed by {self.director}. Genre: {self.genre}. Average rating: {self.avg_rating}"
+
+class MovieDatabase:
+    def __init__(self):
+        self.movies = []
+
+    def add_movie(self, movie):
+        self.movies.append(movie)
+
+    def search_movie(self, query):
+        for movie in self.movies:
+            if query.lower() in [movie.title.lower(), movie.genre.lower(), movie.director.lower()]:
+                print(movie.get_info())
+
+    def rate_movie(self, title, rating):
+        for movie in self.movies:
+            if movie.title == title:
+                movie.add_rating(rating)
+
+database = MovieDatabase()
+
+# add some movies to the database
+database.add_movie(Movie("The Shawshank Redemption", "Drama", 1994, "Frank Darabont"))
+database.add_movie(Movie("The Godfather", "Crime", 1972, "Francis Ford Coppola"))
+database.add_movie(Movie("The Dark Knight", "Action", 2008, "Christopher Nolan"))
+database.add_movie(Movie("Pulp Fiction", "Crime", 1994, "Quentin Tarantino"))
+
+# add some ratings to the movies
+database.rate_movie("The Shawshank Redemption", 9)
+database.rate_movie("The Shawshank Redemption", 10)
+database.rate_movie("The Godfather", 9)
+database.rate_movie("The Godfather", 8)
+database.rate_movie("The Dark Knight", 10)
+database.rate_movie("Pulp Fiction", 7)
+database.rate_movie("Pulp Fiction", 8)
+
+database.search_movie("The Dark Knight")
+
+database.search_movie("Crime")
+
+database.search_movie("Quentin Tarantino")
+
+#5. Online Shop
+class Product:
+    def __init__(self, name, category, price):
+        self.name = name
+        self.category = category
+        self.price = price
+
+    def get_info(self):
+        return f"{self.name} ({self.category}): ${self.price:.2f}"
+
+class Shop:
+    def __init__(self):
+        self.products = []
+
+    def add_product(self, product):
+        self.products.append(product)
+
+    def remove_product(self, name):
+        for product in self.products:
+            if product.name == name:
+                self.products.remove(product)
+                print(f"{name} has been removed from the shop.")
+                return
+        print(f"{name} not found in the shop.")
+
+    def list_products(self):
+        if not self.products:
+            print("No products in the shop.")
+        else:
+            for product in self.products:
+                print(product.get_info())
+
+    def search_products(self, query):
+        found_products = []
+        for product in self.products:
+            if query.lower() in [product.name.lower(), product.category.lower()]:
+                found_products.append(product)
+        if found_products == False:
+            print(f"No matches found for {query}.")
+        else:
+            print(f"{len(found_products)} match(es) found for {query}:")
+            for product in found_products:
+                print(product.get_info())
+        return found_products
+
+class Cart:
+    def __init__(self):
+        self.items = []
+
+    def add_to_cart(self, shop, name):
+        found_products = shop.search_products(name)
+        if found_products:
+            self.items.append(found_products[0])
+            print(f"{name} has been added to the cart.")
+        else:
+            print(f"{name} not found in the shop.")
+
+    def remove_from_cart(self, name):
+        for item in self.items:
+            if item.name == name:
+                self.items.remove(item)
+                print(f"{name} has been removed from the cart.")
+                return
+        print(f"{name} not found in the cart.")
+
+    def list_items(self):
+        if not self.items:
+            print("No items in the cart.")
+        else:
+            for item in self.items:
+                print(item.get_info())
+
+    def get_total(self):
+        cart_total = 0
+        for item in self.items:
+            cart_total += item.price
+        print(f"Cart total: ${cart_total:.2f}")
+
+shop = Shop()
+shop.add_product(Product("Apple", "Fruit", 1.5))
+shop.add_product(Product("Orange", "Fruit", 2.0))
+shop.add_product(Product("Banana", "Fruit", 1.0))
+shop.add_product(Product("Apple Juice", "Drink", 1.5))
+shop.remove_product("Banana")
+
+cart = Cart()
+cart.add_to_cart(shop, "Apple")
+cart.add_to_cart(shop, "Orange")
+cart.add_to_cart(shop, "Banana")
+
+cart.list_items()
+cart.get_total()
+
+cart.remove_from_cart("Apple")
+cart.list_items()     
+</code>
+	</div>
+</div>
+</body>
+</html>

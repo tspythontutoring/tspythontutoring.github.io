@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TSPython</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+ 	<div class="banner">
+	  <a class="banner-title" href = "/">TSPython</a>
+	  <div class="banner-links">
+	    <a class="banner-link" href="lesson1">Introduction</a>
+	    <a class="banner-link" style = "color: #5CE1E6" href="lesson2">Conditionals</a>
+	    <a class="banner-link" href="lesson3">Loops</a>
+	    <a class="banner-link" href="lesson4">Lists</a>
+	    <a class="banner-link" href="lesson5">Functions</a>
+      <a class="banner-link" href="lesson6">Dictionaries</a>
+      <a class="banner-link" href="lesson7">Objects</a>
+	  </div>
+	</div>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRyZm6NhiuLs904NAy5tqKWJSP_9bzCp8czop7NWUa7l0uNhxdlYbJCuacaMhQxngLnZHfCPfWAyQnh/embed?start=true&loop=false&delayms=60000" frameborder="0" width="837" height="500" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+	<iframe src="https://www.youtube.com/embed/anND9BH-DOI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen height="501" style ="margin-top:0px"></iframe>
+
+<div class="image-container">
+	<img class="img-frame" src="3.png" alt="Image 1">
+	<img class="img-frame" src="4.png" alt="Image 2">
+</div>
+
+	<div class="code-container">
+<code>#1. Write a program that accepts a number as input and prints "Positive" if it is positive.
+num = int(input("Input a number: "))
+if num > 0:
+  print("Positive")
+
+#2. Write a program that accepts a nonzero number as input and prints whether it is positive or negative.
+num = int(input("Input a number: "))
+if num > 0:
+  print("Positive")
+else:
+  print("Negative")
+
+#3. Write a program that accepts the length and width of a rectangle as input, prints whether or not it is also a square, and prints the area.
+length = int(input("Input length: "))
+width = int(input("Input width: "))
+if length == width:
+  print("It is a square.")
+else:
+  print("It is not a square.")
+area = length * width
+print(f"Its area is {area}.")
+
+#4. Write a program that accepts a password and prints whether or not the user inputted the correct password.
+correctPassword = "ABCDE"
+inputtedPassword = input("Input password: ")
+if inputtedPassword == correctPassword:
+  print("Correct password!")
+else:
+  print("Incorrect password.")
+
+#5. Write a program that accepts a number as input and prints whether or not it is a multiple of 3.
+num = int(input("Input number: "))
+if num % 3 == 0:
+  print(f"{num} is a multiple of 3.")
+else:
+  print(f"{num} is not a multiple of 3.")
+
+#6. Write a program that accepts a number as input and prints whether it is even or odd.
+num = int(input("Input number: "))
+if num % 2 == 0:
+  print(f"{num} is even.")
+else:
+  print(f"{num} is odd.")
+
+#7. Write a program that accepts a number as input and displays whether it is positive, negative, or zero. 
+num = int(input("Input number: "))
+if num > 0:
+  print(f"{num} is positive.")
+elif num < 0:
+  print(f"{num} is negative.")
+else:
+  print(f"{num} is zero.")
+
+#8. Write a program that accepts a number grade as input and displays its corresponding letter grade. (Displays invalid if not between 0 and 100.)
+numberGrade = int(input("Input number grade: "))
+if numberGrade >= 90 and numberGrade <= 100:
+  print("A")
+elif numberGrade >= 80 and numberGrade <= 89:
+  print("B")
+elif numberGrade >= 70 and numberGrade <= 79:
+  print("C")
+elif numberGrade >= 60 and numberGrade <= 69:
+  print("D")
+elif numberGrade >= 0 and numberGrade <= 59:
+  print("F")
+else:
+  print("Invalid grade!")
+
+#9. Write a program that accepts two different numbers as input and displays whether both, one, or neither are even.
+num1 = int(input("Input first number: "))
+num2 = int(input("Input second number: "))
+if num1 % 2 == 0 and num2 % 2 == 0:
+  print("Both are even.")
+elif num1 % 2 ==0 or num2 % 2 == 0:
+  print("One is even.")
+else:
+  print("Neither is even.")
+
+#10. Write a program that accepts 3 different numbers as input and prints which one is the largest.
+num1 = int(input("Input first number: "))
+num2 = int(input("Input second number: "))
+num3 = int(input("Input third number: "))
+if num1 > num2 and num1 > num3:
+  print(f"{num1} is the largest.")
+elif num2 > num1 and num2 > num3:
+  print(f"{num2} is the largest.")
+else:
+  print(f"{num3} is the largest.")
+
+#11. Write a program that accepts a year as input and prints whether it is a leap year or not.
+  #Note: To be a leap year, the year number must be divisible by four – except for end-of-century years, which must be divisible by 400. 
+year = int(input("Input year: "))
+if year % 400 == 0:
+  print(f"{year} is a leap year.")
+elif year % 4 == 0 and year % 100 != 0:
+  print(f"{year} is a leap year.")
+else:
+  print(f"{year} is not a leap year.")</code>
+	</div>
+</body>
+</html>

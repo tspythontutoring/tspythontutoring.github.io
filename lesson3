@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TSPython</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+ 	<div class="banner">
+	  <a class="banner-title" href = "/">TSPython</a>
+	  <div class="banner-links">
+	    <a class="banner-link" href="lesson1">Introduction</a>
+	    <a class="banner-link" href="lesson2">Conditionals</a>
+	    <a class="banner-link" style = "color: #5CE1E6" href="lesson3">Loops</a>
+	    <a class="banner-link" href="lesson4">Lists</a>
+	    <a class="banner-link" href="lesson5">Functions</a>
+      <a class="banner-link" href="lesson6">Dictionaries</a>
+      <a class="banner-link" href="lesson7">Objects</a>
+	  </div>
+	</div>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQEeakp38D-G8foA_ZPOq1_CqgXrCWMQnBKOBDQsNjl_OGWtUaYuC1AtXkDsDNl94eJyTqp6xqONMdO/embed?start=true&loop=false&delayms=60000" frameborder="0" width="837" height="500" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+	<iframe src="https://www.youtube.com/embed/rQ2gaqMEnAo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen height="501" style ="margin-top:0px"></iframe>
+
+<div class="content-container">
+<div class="image-container">
+	<img class="img-frame" src="5.png" alt="Image 1">
+</div>
+
+	<div class="code-container">
+<code>#1. Write a program that asks the user to guess a number from 1 to 5. If the guess is the winning number, print that the user has won. Else, print whether the guess is too high or too low.
+winningNum = 3
+guess = int(input("Guess a number from 1 to 5: "))
+if guess == winningNum:
+  print("You win!")
+else:
+  if guess > winningNum:
+    print("Too high.")
+  else:
+    print("Too low.")
+
+#2. Write an automatic pizza order program that works out the final bill of an inputted order. 
+  #Small Pizza: $15
+  #Medium Pizza: $20
+  #Large Pizza: $25
+  #Pepperoni for Small Pizza: +$2
+  #Pepperoni for Medium or Large Pizza: +$3
+  #Extra cheese for any size pizza: + $1
+totalBill = 0
+
+size = input("What size would you like? S, M, or L?")
+wantsPepperoni = input("Do you want pepperoni? Y or N")
+wantsCheese = input("Do you want cheese? Y or N")
+
+if size == "S":
+  totalBill = totalBill + 15
+elif size == "M":
+  totalBill = totalBill + 20
+else:
+  totalBill = totalBill + 25
+
+if wantsPepperoni == "Y":
+  if size == "S":
+    totalBill = totalBill + 2
+  else:
+    totalBill = totalBill + 3
+
+if wantsCheese == "Y":
+  totalBill = totalBill + 1
+  
+print(f"Your total bill is {totalBill}!")
+
+#3. Write a program that chooses a random number from 1 to 5 and has the user guess what it is. Display whether the user is correct or not.
+from random import randint
+randomNum = randint(1, 5)
+
+guess = int(input("Guess a number from 1 to 5: "))
+if guess == randomNum:
+  print("That is correct!")
+else:
+  print("That is incorrect.")
+
+#4. Write a program that plays a game of rock paper scissors with the user.
+  # Rock = 0
+  # Paper = 1
+  # Scissors = 2
+
+computerChoice = randint(0, 2)
+userChoice = int(input("Choose rock (0), paper (1), or scissors (2): "))
+
+if computerChoice == userChoice:
+  print("It is a tie!")
+else:
+  if computerChoice == 0 and userChoice == 2:
+    print("Computer has won!")
+  elif computerChoice == 1 and userChoice == 0:
+    print("Computer has won!")
+  elif computerChoice == 2 and userChoice == 1:
+    print("Computer has won!")
+  else:
+    print("User has won!")
+
+if userChoice == 0:
+  userChoice = "Rock"
+elif userChoice == 1:
+  userChoice = "Paper"
+else:
+  userChoice = "Scissors"
+  
+if computerChoice == 0:
+  computerChoice = "Rock"
+elif computerChoice == 1:
+  computerChoice = "Paper"
+else:
+  computerChoice = "Scissors"
+
+print(f"You chose {userChoice} and the computer chose {computerChoice}!")
+
+#5. Write a program that prints the first 10 whole numbers using a while loop.
+num = 1
+while num <= 10:
+  print(num)
+  num += 1
+
+#6. Write a program that prints the first 10 even numbers using a while loop.
+num = 2
+while num <= 20:
+  print(num)
+  num = num + 2
+
+#7. Write a program that prints the first 10 numbers in reverse order using a while loop.
+num = 10
+while num >= 1:
+  print(num)
+  num -= 1
+  
+#8. Write a program that prints the first 10 numbers using a for loop.
+for num in range(1, 11):
+  print(num)
+  
+#9. Write a program that prints the first 10 even numbers using a for loop.
+for num in range(2, 21, 2):
+  print(num)
+
+#10. Write a program that prints all of the odd numbers within a given range using a for loop.
+for num in range(1, 11):
+  if num % 2 != 0:
+    print(num)
+
+#11. Write a program that prints the first 10 numbers in reverse order using a for loop.
+for num in range(10, 0, -1):
+  print(num)
+
+#12. Write a program that prints the sum of all of the numbers from 1 to 10.
+sum = 0
+for num in range(1, 11):
+  sum += num
+print(sum)</code>
+	</div>
+</div>
+</body>
+</html>
