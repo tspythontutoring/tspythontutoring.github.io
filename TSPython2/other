@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>TSPython</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="script.js"></script>
+  <style>
+    body {
+  font-family: calibri;
+	color: white;
+	font-size: 24px;
+  }
+  </style>
+</head>
+<body>
+ 	<div class="banner">
+	  <a class="banner-title" href = "/">TSPython</a>
+	  <div class="banner-links">
+	    <a class="banner-link" href="lesson1">Introduction</a>
+	    <a class="banner-link" href="lesson2">Conditionals</a>
+	    <a class="banner-link" href="lesson3">Loops</a>
+	    <a class="banner-link" href="lesson4">Lists</a>
+	    <a class="banner-link" href="lesson5">Functions</a>
+      <a class="banner-link" href="lesson6">Dictionaries</a>
+      <a class="banner-link" href="lesson7">Objects</a>
+      <a class="banner-link" href="lesson8">Decorators</a>
+      <a class="banner-link" href="lesson9">Generators</a>
+      <a class="banner-link" href="lesson10">Files</a>
+      <a class="banner-link" style = "color: #5CE1E6" href="other">Other</a>
+	  </div>
+	</div>
+
+Exception Handling
+<div class="code-container">
+<code>
+#Since the try block raises an error, the except block will be executed:
+try:
+  print(x)
+except:
+  print("An exception occurred")
+
+#Print one message if the try block raises a NameError and another for other errors:
+try:
+  print(x)
+except NameError:
+  print("Variable x is not defined")
+except:
+  print("Something else went wrong")
+
+#Print the error itself
+try: 
+  print(x)
+except NameError as e:
+  print(f"Name error: {e}")
+except Exception as e:
+  print(f"Other error: {e}")
+
+#You can use the else keyword to define a block of code to be executed if no errors were raised:
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+
+#The finally block, if specified, will be executed regardless of whether the try block raises an error or not.
+try:
+  print(x)
+except:
+  print("Something went wrong")
+finally:
+  print("The 'try except' is finished")
+
+#Raise a TypeError if x is not an integer:
+x = "hello"
+
+if not type(x) is int:
+  raise TypeError("Only integers are allowed")
+</code>
+</div>
+Lambda, Filter, Map
+<div class="code-container">
+<code>
+numbers = [1, 2, 3, 4, 5]
+
+# Equivalent normal function that squares a number
+def square(x):
+    return x**2
+  
+# Equivalent lambda function that squares a number
+square = lambda x: x**2
+
+# map
+squared_numbers = list(map(lambda x: x**2, numbers))
+
+# filter
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+
+# Print results
+print("Numbers:", numbers)
+print("Squared numbers:", squared_numbers)
+print("Even numbers:", even_numbers)
+</code>
+</div>
+List Comprehension
+<div class="code-container">
+<code>
+# Example 1: Appending the items in a range sequence to a list
+sequence = range(1, 11)
+numbers = []
+for num in sequence:
+  numbers.append(num)
+  
+print(numbers)
+
+# Corresponding list comprehension
+numbers = [num for num in sequence]
+
+print(numbers)
+
+# Example 2: Squaring numbers using for loops and appending to a list
+numbers = [1, 2, 3, 4, 5]
+squares = []
+
+for num in numbers:
+    squares.append(num ** 2)
+
+print(squares)
+
+# Corresponding list comprehension
+squares = [num ** 2 for num in numbers]
+
+print(squares)
+
+
+# Example 3: Filtering even numbers using for loops and appending to a list
+numbers = [1, 2, 3, 4, 5]
+evens = []
+
+for num in numbers:
+    if num % 2 == 0:
+        evens.append(num)
+
+print(evens)
+
+# Corresponding list comprehension
+evens = [num for num in numbers if num % 2 == 0]
+
+print(evens)
+
+
+# Example 4: Nested loops using for loops and appending to a list
+letters = ['a', 'b', 'c']
+numbers = [1, 2, 3]
+pairs = []
+
+for letter in letters:
+    for number in numbers:
+        pairs.append([letter, number])
+
+print(pairs)
+
+# Corresponding list comprehension
+pairs = [[letter, number] for letter in letters for number in numbers]
+
+print(pairs)
+</code>
+</div>
+Dictionary Comprehension
+<div class="code-container">
+<code>
+# Example 1: Creating a dictionary of the keys' squares
+keys = [1, 2, 3, 4, 5]
+dictionary = {}
+
+for key in keys:
+  dictionary[key] = key ** 2
+
+print(dictionary)
+
+# Corresponding dictionary comprehension
+dictionary = {key : key**2 for key in keys}
+
+print(dictionary)
+
+# Example 2: Creating a dictionary using for loops and assigning key-value pairs
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+dictionary = {}
+
+for i in range(len(keys)):
+    dictionary[keys[i]] = values[i]
+
+print(dictionary)
+
+# Corresponding dictionary comprehension
+dictionary = {keys[i]: values[i] for i in range(len(keys))}
+
+print(dictionary)
+
+
+# Example 3: Filtering dictionary items using for loops and adding them to a new dictionary
+dictionary = {'a': 1, 'b': 2, 'c': 3}
+new_dict = {}
+
+for key, value in dictionary.items():
+    if value % 2 == 0:
+        new_dict[key] = value
+
+print(new_dict)
+
+# Corresponding dictionary comprehension
+new_dict = {key: value for key, value in dictionary.items() if value % 2 == 0}
+
+print(new_dict)
+
+
+# Example 4: Dictionary comprehension with conditions on both keys and values
+dictionary = {'a': 1, 'b': 2, 'c': 3}
+new_dict = {}
+
+for key, value in dictionary.items():
+    if key != 'a' and value % 2 != 0:
+        new_dict[key] = value * 2
+
+print(new_dict)
+
+# Corresponding dictionary comprehension
+new_dict = {key: value * 2 for key, value in dictionary.items() if key != 'a' and value % 2 != 0}
+
+print(new_dict)
+</code>
+</div>
+</body>
+</html>
