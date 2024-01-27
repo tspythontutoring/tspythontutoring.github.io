@@ -1,0 +1,166 @@
+body {
+    background-color: black;
+    font-family: calibri;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 75px;
+    overflow: scroll;
+}
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row; /* Flex direction should be row for horizontal arrangement */
+    align-items: start;
+    width: 100%;
+}
+.image-container {
+    flex: 1;
+    max-width: 30%; /* Adjusted to 30% */
+    margin-right: 10px;
+    box-sizing: border-box; /* Include padding and border in an element's total width and height */
+}
+.code-container {
+    flex: 1;
+    max-width: 70%; /* Adjusted to 70% */
+    color: white;
+    font-size: 16px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-break: break-word; /* break-word allows unbreakable words to be broken */
+    overflow-wrap: anywhere; /* Prevents words splitting between lines */
+    border: 2px solid white;
+    border-radius: 0px;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding and border in an element's total width and height */
+}
+.img-frame {
+    width: 100%; /* adjust this to 100% */
+    border: 2px solid white;
+    border-radius: 0px;
+}
+
+.img-frame, .code-container, .full-iframe, iframe {
+    transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.img-frame:hover, .code-container:hover, .full-iframe:hover, iframe:hover {
+    border-color: #5CE1E6; /* Makes the border glow */
+    box-shadow: 0 0 10px #5CE1E6; /* Adds a glow effect */
+}
+
+
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: black;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: darkgray;
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: lightgray;
+}
+
+iframe {
+	flex-basis: 49.5%;
+	margin-bottom: 20px;
+	border: 2px solid white;
+	border-radius: 0px;
+}
+
+.banner {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #212121;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+  z-index: 1;
+}
+
+.banner-title {
+	color: white;
+	font-size: 24px;
+	text-decoration: none;
+	margin-left: 20px;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.banner-title:hover {
+	opacity: 0.7;
+}
+
+.banner-links {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	margin-right: 20px;
+}
+
+.banner-link {
+	color: white;
+	text-decoration: none;
+	margin: 10px;
+	font-size: 20px;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.banner-link:hover {
+	opacity: 0.7;
+}
+
+.full-iframe {
+	flex-basis: 100%;
+	padding: 0px;
+	color: white;
+	font-size: 16px;
+	white-space: pre-wrap;
+	word-break: break-all;
+	border: 2px solid white;
+	border-radius: 0px;
+	margin-top: 10px;
+  height: calc(100vh - 230px);
+}
+
+@media only screen and (max-width: 1300px) {
+  body {
+    padding-top: 125px;
+  }
+  .banner-title {
+    font-size: 20px;
+  }
+  .banner-link {
+    font-size: 16px;
+    margin: 5px;
+  }
+  .banner-links {
+    flex-wrap: wrap;
+  }
+  .code-container {
+    font-size: 14px;
+    width: 100%;
+    margin: 10px 0;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  iframe {
+    flex-basis: 100%;
+    pointer-events: auto;
+    height: 300px;
+  }
+}
